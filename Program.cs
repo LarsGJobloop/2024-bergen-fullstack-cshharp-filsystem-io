@@ -5,31 +5,39 @@
     // Skriv en velkomest melding
     Console.WriteLine("Welcome to C# File System Input/Output");
 
-    // Ta imot bruker kommando seleksjon
-    Console.WriteLine("Please enter a command");
-    Console.WriteLine("Available commands:");
-    Console.WriteLine("- create");
-    Console.WriteLine("- read");
-    string? userInput = Console.ReadLine();
-    if (userInput == null)
+    bool quitProgram = false;
+    while (!quitProgram)
     {
-      return;
-    }
+      // Ta imot bruker kommando seleksjon
+      Console.WriteLine("Please enter a command");
+      Console.WriteLine("Available commands:");
+      Console.WriteLine("- create");
+      Console.WriteLine("- read");
+      Console.WriteLine("- quit");
+      string? userInput = Console.ReadLine();
+      if (userInput == null)
+      {
+        return;
+      }
 
-    // Finne kommandoen
-    switch (userInput)
-    {
-      case "create":
-        Console.WriteLine("Creating a file");
-        break;
-      case "read":
-        Console.WriteLine("Reading a file");
-        break;
-      default:
-        Console.WriteLine("Unkown Command");
-        break;
-    }
+      // Finne kommandoen
+      switch (userInput)
+      {
+        case "create":
+          Console.WriteLine("Creating a file");
+          break;
+        case "read":
+          Console.WriteLine("Reading a file");
+          break;
+        case "quit":
+          Console.WriteLine("Exiting program");
+          return;
+        default:
+          Console.WriteLine("Unkown Command");
+          break;
+      }
 
-    // Kjør Kommandoen
+      // Kjør Kommandoen
+    }
   }
 }
