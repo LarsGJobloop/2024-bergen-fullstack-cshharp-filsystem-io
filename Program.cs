@@ -24,10 +24,10 @@
       switch (userInput)
       {
         case "create":
-          Console.WriteLine("Creating a file");
+          CreateFile();
           break;
         case "read":
-          Console.WriteLine("Reading a file");
+          ReadFile();
           break;
         case "quit":
           Console.WriteLine("Exiting program");
@@ -36,8 +36,16 @@
           Console.WriteLine("Unkown Command");
           break;
       }
-
-      // Kjør Kommandoen
     }
+  }
+
+  static void CreateFile()
+  {
+    Console.WriteLine("Creating a file (called from a method)");
+  }
+
+  static void ReadFile()
+  {
+    Console.WriteLine("Reading a file (called from a method)");
   }
 }
