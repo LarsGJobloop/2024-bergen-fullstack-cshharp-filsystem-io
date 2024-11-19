@@ -46,6 +46,24 @@
 
   static void ReadFile()
   {
-    Console.WriteLine("Reading a file (called from a method)");
+    Console.WriteLine("Please specify file to read:");
+    string? path = Console.ReadLine();
+    if (path == null)
+    {
+      Console.WriteLine("Could not read from Console (/stdin)");
+      return;
+    }
+
+    try
+    {
+      // Les av tekst file "hello.txt"
+      string content = System.IO.File.ReadAllText(path);
+      // Print den til konsollen
+      Console.WriteLine(content);
+    }
+    catch (System.Exception)
+    {
+      Console.WriteLine("Could not read file, please try something else!");
+    }
   }
 }
