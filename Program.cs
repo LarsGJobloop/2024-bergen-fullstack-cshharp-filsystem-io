@@ -41,7 +41,17 @@
 
   static void CreateFile()
   {
-    Console.WriteLine("Creating a file (called from a method)");
+    Console.WriteLine("Please specify file to create:");
+    string? path = Console.ReadLine();
+    if (path == null)
+    {
+      Console.WriteLine("Could not read from Console (/stdin)");
+      return;
+    }
+
+    var stream = System.IO.File.Create(path);
+    Console.WriteLine($"Created file: {path}");
+    stream.Close(); // Vi må fortelle OS at vi er ferdig med filen
   }
 
   static void ReadFile()
