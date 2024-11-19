@@ -49,9 +49,16 @@
       return;
     }
 
-    var stream = System.IO.File.Create(path);
-    Console.WriteLine($"Created file: {path}");
-    stream.Close(); // Vi må fortelle OS at vi er ferdig med filen
+    try
+    {
+      var stream = System.IO.File.Create(path);
+      Console.WriteLine($"Created file: {path}");
+      stream.Close(); // Vi må fortelle OS at vi er ferdig med filen
+    }
+    catch (System.Exception)
+    {
+      Console.WriteLine("Could not create file!");
+    }
   }
 
   static void ReadFile()
